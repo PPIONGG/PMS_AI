@@ -1,0 +1,85 @@
+<div class="container">
+
+  <div class="header">
+    <mat-progress-bar *ngIf="hideprogress" mode="determinate" [value]="progressValue" style="position: absolute;"></mat-progress-bar>
+
+    <div class="header-1" (click)="reloadPage()">
+      SolarMonitor
+    </div>
+    <div class="header-2">
+      <a (click)="openDialog(1)">Home</a>
+      <p></p>
+      <a (click)="openDialog(2)">About</a>
+      <p></p>
+      <a (click)="openDialog(3)">Contact</a>
+    </div>
+  </div>
+  <div class="main">
+    <div class="main-1">
+      <p>
+        AI Based Performance Monitoring
+        <br> for Photovoltaic Systems
+      </p>
+    </div>
+    <div class="main-2">
+      <div class="main-2-1">
+        <mat-card class="main-card">
+          <p>Login</p>
+          <mat-form-field>
+            <mat-label>Username or Email</mat-label>
+            <input matInput placeholder="" value="" id="username" [(ngModel)]="username">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" id="password" [(ngModel)]="password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <div class="main-bottom-card">
+            <div>
+              <mat-checkbox [color]="'primary'" class="example-margin">Remember Me</mat-checkbox>
+            </div>
+            <div>
+              <div class="main-forgot" ><a routerLink="" (click)="openDialogForgot()">Forgot your password</a><br></div>
+            </div>
+          </div>
+          <button class="main-bt-login" mat-raised-button
+            (click)="login()" color="primary">เข้าสู่ระบบ</button>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer-1">
+      <img src="./../../assets/logo NU.png" alt="">
+      <p></p>
+      <div>
+        <div>Naresuan University</div>
+        <div style="font-size: 12px;">
+          99, Moo. 9, Tambon Tha Pho, Amphoe Mueang <br> Phitsanulok, Chang Wat Phitsanulok 65000
+        </div>
+      </div>
+    </div>
+    <div class="footer-2">
+      <p></p>
+      <div>
+        <div>
+          Tel
+        </div>
+        <div>
+          (+66)8 2401 9709
+        </div>
+      </div>
+      <div>
+        <div>
+          Email
+        </div>
+        <div>
+          Macopt.co@gmail.com
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

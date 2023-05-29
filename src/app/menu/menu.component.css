@@ -15,7 +15,10 @@ body {
   grid-area: header;
   display: flex;
   justify-content: space-between;
-  background: #fdc30b;
+  /* background: #fdc30b; */
+  /* background: rgb(15, 31, 85); */
+  background: rgb(30, 53, 126);
+
 }
 .leftbar {
   /* border: 1px solid red; */
@@ -49,7 +52,8 @@ body {
   font-style: normal;
   font-weight: 600;
   font-size: 48px;
-  color: #122460;
+  /* color: #122460; */
+  color: #ffff;
 }
 .h-text-2 {
   display: flex;

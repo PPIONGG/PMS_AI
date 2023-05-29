@@ -1,17 +1,18 @@
 <div class="container">
 
   <div class="header">
-    <mat-progress-bar *ngIf="hideprogress" mode="determinate" [value]="progressValue" style="position: absolute;"></mat-progress-bar>
+    <mat-progress-bar *ngIf="hideprogress" mode="determinate" [value]="progressValue"
+      style="position: absolute;"></mat-progress-bar>
 
     <div class="header-1" (click)="reloadPage()">
       SolarMonitor
     </div>
     <div class="header-2">
-      <a (click)="openDialog(1)">Home</a>
+      <a (click)="openDialog('home')">Home</a>
       <p></p>
-      <a (click)="openDialog(2)">About</a>
+      <a (click)="openDialog('abount')">About</a>
       <p></p>
-      <a (click)="openDialog(3)">Contact</a>
+      <a (click)="openDialog('contact')">Contact</a>
     </div>
   </div>
   <div class="main">
@@ -37,16 +38,16 @@
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
           </mat-form-field>
-          <div class="main-bottom-card">
+          <div class="main-card-groupbutton">
+            <button style="font-family: 'Noto Sans Thai', sans-serif;" class="main-bt-login" mat-raised-button
+              (click)="login()" color="primary">เข้าสู่ระบบ</button>
             <div>
-              <mat-checkbox [color]="'primary'" class="example-margin">Remember Me</mat-checkbox>
+              <div class="main-forgot"><a routerLink="" (click)="openDialog('forgot')">Forgot your password</a><br></div>
             </div>
-            <div>
-              <div class="main-forgot" ><a routerLink="" (click)="openDialogForgot()">Forgot your password</a><br></div>
-            </div>
+            <button class="main-bt-createaccount" mat-raised-button
+              style="background-color:var(--success-color);color:#f0f0f0 ;" (click)="openDialog('createaccount')">Create New
+              Account</button>
           </div>
-          <button class="main-bt-login" mat-raised-button
-            (click)="login()" color="primary">เข้าสู่ระบบ</button>
         </mat-card>
       </div>
     </div>
@@ -69,7 +70,7 @@
           Tel
         </div>
         <div>
-          (+66)8 2401 9709
+          064-424-98XX
         </div>
       </div>
       <div>
@@ -77,7 +78,7 @@
           Email
         </div>
         <div>
-          Macopt.co@gmail.com
+          Thammasornl62@nu.ac.th
         </div>
       </div>
     </div>

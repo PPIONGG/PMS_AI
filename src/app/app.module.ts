@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -19,6 +20,7 @@ import { HomeComponent } from './dialog/login/home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { AlertsComponent } from './alerts/alerts.component';
 import { SettingsComponent } from './settings/settings.component';
+import { CreateaccountComponent } from './dialog/login/createaccount/createaccount.component';
 
 
 
@@ -34,7 +36,8 @@ import { SettingsComponent } from './settings/settings.component';
     HomeComponent,
     MenuComponent,
     AlertsComponent,
-    SettingsComponent
+    SettingsComponent,
+    CreateaccountComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { SettingsComponent } from './settings/settings.component';
     BrowserAnimationsModule,
     FormsModule,
     MaterialModule,
-    PrimengModule
+    PrimengModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

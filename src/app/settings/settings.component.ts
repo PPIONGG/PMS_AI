@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BtactiveService } from '../btactive.service';
+import { BtactiveService } from '../service/btactive.service';
 
 @Component({
   selector: 'app-settings',

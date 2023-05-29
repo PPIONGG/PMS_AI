@@ -5,6 +5,7 @@ import { HomeComponent } from '../dialog/login/home/home.component';
 import { AboutComponent } from '../dialog/login/about/about.component';
 import { ContactComponent } from '../dialog/login/contact/contact.component';
 import { ForgotComponent } from '../dialog/login/forgot/forgot.component';
+import { CreateaccountComponent } from '../dialog/login/createaccount/createaccount.component';
 
 @Component({
   selector: 'app-login',
@@ -22,8 +23,8 @@ export class LoginComponent {
     private dialog: MatDialog
   ) { }
 
-  openDialog(dialognumber: number) {
-    if (dialognumber == 1) {
+  openDialog(dialognumber: string) {
+    if (dialognumber == 'home') {
       const dialogRef = this.dialog.open(HomeComponent, {
         width: '1000px',
       });
@@ -31,7 +32,7 @@ export class LoginComponent {
         console.log('The dialog was closed');
       })
     }
-    else if (dialognumber == 2) {
+    else if (dialognumber == 'abount') {
       const dialogRef = this.dialog.open(AboutComponent, {
         width: '1000px',
       });
@@ -39,7 +40,7 @@ export class LoginComponent {
         console.log('The dialog was closed');
       })
     }
-    else if (dialognumber == 3) {
+    else if (dialognumber == 'contact') {
       const dialogRef = this.dialog.open(ContactComponent, {
         width: '1000px',
       });
@@ -47,15 +48,24 @@ export class LoginComponent {
         console.log('The dialog was closed');
       })
     }
+    else if (dialognumber == 'forgot') {
+      const dialogRef = this.dialog.open(ForgotComponent, {
+        width: '500px',
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+      })
+    }
+    else if (dialognumber == 'createaccount') {
+      const dialogRef = this.dialog.open(CreateaccountComponent, {
+        width: '500px',
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+      })
+    }
   }
-  openDialogForgot() {
-    const dialogRef = this.dialog.open(ForgotComponent, {
-      width: '500px',
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    })
-  }
+
   login(): void {
     this.router.navigate(['/menu']);
   }

@@ -55,12 +55,12 @@
   justify-content: center;
 }
 .main-1 p {
-padding-left: 2rem;
-font-style: normal;
-font-weight: 900;
-font-size: 48px;
-line-height: 55px;
-color: #ffffff;
+  padding-left: 2rem;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 55px;
+  color: #ffffff;
 }
 .main-2 {
   width: 50%;
@@ -83,20 +83,26 @@ color: #ffffff;
   font-size: 25px;
   margin-bottom: 2rem;
 }
-.main-bottom-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
 .main-forgot {
   display: flex;
   align-items: center;
 }
+.main-card-groupbutton{
+  display: flex;
+  gap: .8em;
+  flex-direction: column;
+  align-items: center;
+}
 .main-bt-login {
   height: 3rem;
+  width: 100%;
   background-color: rgba(22, 35, 93);
   color: #ffffff;
+}
+.main-bt-createaccount {
+  height: 2.6rem;
+  width: 280px;
+
 }
 .footer {
   display: flex;
@@ -142,24 +148,24 @@ color: #ffffff;
 .footer-2 div {
   color: #ffffff;
 }
-@media (max-width: 1538px){
+@media (max-width: 1538px) {
   .main-1 p {
     font-size: 40px;
-    }
+  }
 }
-@media (max-width: 1296px){
+@media (max-width: 1296px) {
   .main-1 p {
     font-size: 34px;
-    }
+  }
 }
-@media (max-width: 1195px){
+@media (max-width: 1195px) {
   .main-1 {
     display: none;
-    }
-    .main-2 {
-      width: 100%;
-    }
-    .main-card {
-      margin-right: 0;
-    }
+  }
+  .main-2 {
+    width: 100%;
+  }
+  .main-card {
+    margin-right: 0;
+  }
 }

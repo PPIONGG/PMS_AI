@@ -7,6 +7,7 @@ import { TreeSelectModule } from 'primeng/treeselect';
 import { DropdownModule } from 'primeng/dropdown';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { CardModule } from 'primeng/card';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [],
@@ -19,7 +20,8 @@ import { CardModule } from 'primeng/card';
     TreeSelectModule,
     DropdownModule,
     MultiSelectModule,
-    CardModule
+    CardModule,
+    ToastModule
   ]
 })
 export class PrimengModule { }

@@ -1,175 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+
 <body>
-    <mat-sidenav-container class="example-container">
-        <mat-sidenav #sidenav mode="over" [opened]="false">
-            <div class="container-sidenav">
-                <div class="sidenav-1">
-                    <div>
-                        <button mat-icon-button (click)="sidenav.toggle()" style="margin-left: 12px;">
-                            <img src="https://cdn-icons-png.flaticon.com/512/2976/2976215.png" alt="">
-                        </button>
-                    </div>
-                    <div>
-                        <div class="sidenav-text-1" style="padding-right: 2rem;cursor: pointer;margin-left: 1.5rem;"
-                            (click)="sidenav.toggle()">SolarMonitor</div>
-                    </div>
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="over" [opened]="false">
+      <div class="container-sidenav">
+        <div class="sidenav-1">
+          <div>
+            <button mat-icon-button (click)="sidenav.toggle()" style="margin-left: 12px;">
+              <img src="https://cdn-icons-png.flaticon.com/512/2976/2976215.png" alt="">
+            </button>
+          </div>
+          <div>
+            <div class="sidenav-text-1" style="padding-right: 2rem;cursor: pointer;margin-left: 1.5rem;"
+              (click)="sidenav.toggle()">SolarMonitor</div>
+          </div>
+        </div>
+        <div class="sidenav-2">
+          <div>
+            <button [ngClass]="{ 'active': isButtonActive1 }" routerLink="dashboard" mat-button class="bt-sidenav"
+              (click)="changeButtonImage('dashboard'); sidenav.toggle()">
+              <div style="display: flex;">
+                <div style="margin-left: -68px;display: flex;align-items: center;">
+                  <img *ngIf="dashboardbt" src="https://cdn-icons-png.flaticon.com/512/1828/1828765.png" alt=""
+                    style="width: 25px; height: 25px;">
+                  <img *ngIf="!dashboardbt" src="https://cdn-icons-png.flaticon.com/512/1828/1828791.png" alt=""
+                    style="width: 25px; height: 25px;">
                 </div>
-                <div class="sidenav-2">
-                    <div>
-                        <button [ngClass]="{ 'active': isButtonActive1 }" routerLink="dashboard" mat-button class="bt-sidenav"
-                            (click)="changeButton1Image('dashboard')" (click)="sidenav.toggle()">
-                            <div style="display: flex;">
-                                <div style="margin-left: -68px;display: flex;align-items: center;">
-                                    <img *ngIf="dashboardbt"
-                                        src="https://cdn-icons-png.flaticon.com/512/1828/1828765.png" alt=""
-                                        style="width: 25px; height: 25px;">
-                                    <img *ngIf="!dashboardbt"
-                                        src="https://cdn-icons-png.flaticon.com/512/1828/1828791.png" alt=""
-                                        style="width: 25px; height: 25px;">
-                                </div>
-                                <div style="margin-left: 56px;">
-                                    <p style="font-size: 20px;height: 100%;display: flex;align-items: center;">Dashboard
-                                    </p>
-                                </div>
-                            </div>
-                        </button>
-                    </div>
-                    <div>
-                        <button [ngClass]="{ 'active': isButtonActive2 }" routerLink="alerts" mat-button class="bt-sidenav"
-                            (click)="changeButton1Image('alerts')" (click)="sidenav.toggle()">
-                            <div style="display: flex;">
-                                <div style="margin-left: -114px;display: flex;align-items: center;"> <img
-                                        *ngIf="alertsbt" src="https://cdn-icons-png.flaticon.com/512/497/497840.png"
-                                        alt="" style="width: 25px; height: 25px;">
-                                    <img *ngIf="!alertsbt" src="https://cdn-icons-png.flaticon.com/512/497/497789.png"
-                                        alt="" style="width: 25px; height: 25px;">
-                                </div>
-                                <div style="margin-left: 56px;">
-                                    <p style="font-size: 20px;height: 100%;display: flex;align-items: center;">Alerts
-                                    </p>
-                                </div>
-                            </div>
-                        </button>
-                    </div>
-                    <div>
-                        <button [ngClass]="{ 'active': isButtonActive3 }" mat-button class="bt-sidenav" routerLink="users" (click)="changeButton1Image('users')"
-                            (click)="sidenav.toggle()">
-                            <div style="display: flex;">
-                                <div style="margin-left: -128px;display: flex;align-items: center;"> <img *ngIf="userbt"
-                                        src="https://cdn-icons-png.flaticon.com/512/681/681443.png" alt=""
-                                        style="width: 25px; height: 25px;">
-                                    <img *ngIf="!userbt" src="https://cdn-icons-png.flaticon.com/512/681/681494.png"
-                                        alt="" style="width: 25px; height: 25px;">
-                                </div>
-                                <div style="margin-left: 56px;">
-                                    <p style="font-size: 20px;height: 100%;display: flex;align-items: center;">User
-                                    </p>
-                                </div>
-                            </div>
-                        </button>
-                    </div>
-                    <div>
-                        <button [ngClass]="{ 'active': isButtonActive4 }" mat-button class="bt-sidenav" routerLink="setting" (click)="changeButton1Image('setting')"
-                            (click)="sidenav.toggle()">
-                            <div style="display: flex;">
-                                <div style="margin-left: -88px;display: flex;align-items: center;"> <img
-                                        *ngIf="settingsbt" src="https://cdn-icons-png.flaticon.com/512/839/839599.png"
-                                        alt="" style="width: 25px; height: 25px;">
-                                    <img *ngIf="!settingsbt" src="https://cdn-icons-png.flaticon.com/512/839/839548.png"
-                                        alt="" style="width: 25px; height: 25px;">
-                                </div>
-                                <div style="margin-left: 56px;">
-                                    <p style="font-size: 20px;height: 100%;display: flex;align-items: center;">Settings
-                                    </p>
-                                </div>
-                            </div>
-                        </button>
-                    </div>
-                    <mat-divider style="margin-top: 15px;"></mat-divider>
+                <div style="margin-left: 56px;">
+                  <p style="font-size: 20px;height: 100%;display: flex;align-items: center;">Dashboard
+                  </p>
                 </div>
-            </div>
-        </mat-sidenav>
-        <mat-sidenav-content>
-            <div class="container">
-                <div class="header">
-                    <div class="header-1">
-                        <div><button mat-icon-button style="margin-left: -6px;" (click)="sidenav.toggle()">
-                                <img src="./../../assets/menuicon.png"  alt="" style="width: 30px;height: auto;">
-                            </button></div>
-                        <div class="h-text-1">SolarMonitor</div>
-                        <!-- <div class="h-text-2">Monitor & Dashboard</div> -->
-                    </div>
-                    <div class="header-2">
-                        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"
-                            style="display: flex;align-items: center;justify-content: center;">
-                            <img src="https://cdn-icons-png.flaticon.com/256/4140/4140048.png" alt=""
-                                style="width: 40px;height: 40px;">
-                        </button>
-                        <mat-menu #menu="matMenu">
-                            <button mat-menu-item>
-                                <mat-icon>face</mat-icon>
-                                <span>Profile</span>
-                            </button>
-                            <button mat-menu-item disabled>
-                                <mat-icon>settings_suggest</mat-icon>
-                                <span>Setting</span>
-                            </button>
-                            <button mat-menu-item routerLink="">
-                                <mat-icon>logout</mat-icon>
-                                <span>Log out</span>
-                            </button>
-                        </mat-menu>
-                    </div>
+              </div>
+            </button>
+          </div>
+          <div>
+            <button [ngClass]="{ 'active': isButtonActive2 }" routerLink="alerts" mat-button class="bt-sidenav"
+              (click)="changeButtonImage('alerts'); sidenav.toggle()">
+              <div style="display: flex;">
+                <div style="margin-left: -114px;display: flex;align-items: center;"> <img *ngIf="alertsbt"
+                    src="https://cdn-icons-png.flaticon.com/512/497/497840.png" alt=""
+                    style="width: 25px; height: 25px;">
+                  <img *ngIf="!alertsbt" src="https://cdn-icons-png.flaticon.com/512/497/497789.png" alt=""
+                    style="width: 25px; height: 25px;">
                 </div>
-                <div class="leftbar">
-                    <div class="lb-1">
-                        <button routerLink="dashboard" mat-button style="height: 5.5rem;padding-top: 10px;"
-                            class="vertical-button" (click)="changeButton1Image('dashboard')">
-                            <img *ngIf="dashboardbt" src="https://cdn-icons-png.flaticon.com/512/1828/1828765.png" alt=""
-                                style="width: 25px; height: 25px;">
-                            <img *ngIf="!dashboardbt" src="https://cdn-icons-png.flaticon.com/512/1828/1828791.png" alt=""
-                                style="width: 25px; height: 25px;">
-                            <p style="font-size: 12px;">Dashboard</p>
-                        </button>
-                        <button routerLink="alerts" mat-button style="height: 5.5rem;padding-top: 10px;"
-                            class="vertical-button" (click)="changeButton1Image('alerts')">
-                            <img *ngIf="alertsbt" src="https://cdn-icons-png.flaticon.com/512/497/497840.png" alt=""
-                                style="width: 25px; height: 25px;">
-                            <img *ngIf="!alertsbt" src="https://cdn-icons-png.flaticon.com/512/497/497789.png" alt=""
-                                style="width: 25px; height: 25px;">
-                            <p style="font-size: 12px;">Alerts</p>
-                        </button>
-                        <button routerLink="users" mat-button style="height: 5.5rem;padding-top: 10px;" class="vertical-button"
-                            (click)="changeButton1Image('users')">
-                            <img *ngIf="userbt" src="https://cdn-icons-png.flaticon.com/512/681/681443.png" alt=""
-                                style="width: 25px; height: 25px;">
-                            <img *ngIf="!userbt" src="https://cdn-icons-png.flaticon.com/512/681/681494.png" alt=""
-                                style="width: 25px; height: 25px;">
-                            <p style="font-size: 12px;">User</p>
-                        </button>
-                        <button routerLink="setting" mat-button style="height: 5.5rem;padding-top: 10px;" class="vertical-button"
-                            (click)="changeButton1Image('setting')">
-                            <img *ngIf="settingsbt" src="https://cdn-icons-png.flaticon.com/512/839/839599.png" alt=""
-                                style="width: 25px; height: 25px;">
-                            <img *ngIf="!settingsbt" src="https://cdn-icons-png.flaticon.com/512/839/839548.png" alt=""
-                                style="width: 25px; height: 25px;">
-                            <p style="font-size: 12px;">Settings</p>
-                        </button>
-                    </div>
+                <div style="margin-left: 56px;">
+                  <p style="font-size: 20px;height: 100%;display: flex;align-items: center;">Alerts
+                  </p>
                 </div>
-                <div class="main">
-                    <router-outlet></router-outlet>
+              </div>
+            </button>
+          </div>
+          <div>
+            <button [ngClass]="{ 'active': isButtonActive3 }" mat-button class="bt-sidenav" routerLink="users"
+              (click)="changeButtonImage('users');sidenav.toggle()">
+              <div style="display: flex;">
+                <div style="margin-left: -128px;display: flex;align-items: center;"> <img *ngIf="userbt"
+                    src="https://cdn-icons-png.flaticon.com/512/681/681443.png" alt=""
+                    style="width: 25px; height: 25px;">
+                  <img *ngIf="!userbt" src="https://cdn-icons-png.flaticon.com/512/681/681494.png" alt=""
+                    style="width: 25px; height: 25px;">
                 </div>
-            </div>
-        </mat-sidenav-content>
-    </mat-sidenav-container>
+                <div style="margin-left: 56px;">
+                  <p style="font-size: 20px;height: 100%;display: flex;align-items: center;">User
+                  </p>
+                </div>
+              </div>
+            </button>
+          </div>
+          <div>
+            <button [ngClass]="{ 'active': isButtonActive4 }" mat-button class="bt-sidenav" routerLink="setting"
+              (click)="changeButtonImage('setting');sidenav.toggle()">
+              <div style="display: flex;">
+                <div style="margin-left: -88px;display: flex;align-items: center;"> <img *ngIf="settingsbt"
+                    src="https://cdn-icons-png.flaticon.com/512/839/839599.png" alt=""
+                    style="width: 25px; height: 25px;">
+                  <img *ngIf="!settingsbt" src="https://cdn-icons-png.flaticon.com/512/839/839548.png" alt=""
+                    style="width: 25px; height: 25px;">
+                </div>
+                <div style="margin-left: 56px;">
+                  <p style="font-size: 20px;height: 100%;display: flex;align-items: center;">Settings
+                  </p>
+                </div>
+              </div>
+            </button>
+          </div>
+          <mat-divider style="margin-top: 15px;"></mat-divider>
+        </div>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="container">
+        <div class="header">
+          <div class="header-1">
+            <div><button mat-icon-button style="margin-left: -6px;" (click)="sidenav.toggle()">
+                <img src="./../../assets/menuicon.png" alt="" style="width: 30px;height: auto;">
+              </button></div>
+            <div class="h-text-1">SolarMonitor</div>
+            <!-- <div class="h-text-2">Monitor & Dashboard</div> -->
+          </div>
+          <div class="header-2">
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"
+              style="display: flex;align-items: center;justify-content: center;">
+              <img src="https://cdn-icons-png.flaticon.com/256/4140/4140048.png" alt=""
+                style="width: 40px;height: 40px;">
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <mat-icon>face</mat-icon>
+                <span>Profile</span>
+              </button>
+              <button mat-menu-item disabled>
+                <mat-icon>settings_suggest</mat-icon>
+                <span>Setting</span>
+              </button>
+              <button mat-menu-item routerLink="">
+                <mat-icon>logout</mat-icon>
+                <span>Log out</span>
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+        <div class="leftbar">
+          <div class="lb-1">
+            <button routerLink="dashboard" mat-button style="height: 5.5rem;padding-top: 10px;" class="vertical-button"
+              (click)="changeButtonImage('dashboard')">
+              <img *ngIf="dashboardbt" src="https://cdn-icons-png.flaticon.com/512/1828/1828765.png" alt=""
+                style="width: 25px; height: 25px;">
+              <img *ngIf="!dashboardbt" src="https://cdn-icons-png.flaticon.com/512/1828/1828791.png" alt=""
+                style="width: 25px; height: 25px;">
+              <p style="font-size: 12px;">Dashboard</p>
+            </button>
+            <button routerLink="alerts" mat-button style="height: 5.5rem;padding-top: 10px;" class="vertical-button"
+              (click)="changeButtonImage('alerts')">
+              <img *ngIf="alertsbt" src="https://cdn-icons-png.flaticon.com/512/497/497840.png" alt=""
+                style="width: 25px; height: 25px;">
+              <img *ngIf="!alertsbt" src="https://cdn-icons-png.flaticon.com/512/497/497789.png" alt=""
+                style="width: 25px; height: 25px;">
+              <p style="font-size: 12px;">Alerts</p>
+            </button>
+            <button routerLink="users" mat-button style="height: 5.5rem;padding-top: 10px;" class="vertical-button"
+              (click)="changeButtonImage('users')">
+              <img *ngIf="userbt" src="https://cdn-icons-png.flaticon.com/512/681/681443.png" alt=""
+                style="width: 25px; height: 25px;">
+              <img *ngIf="!userbt" src="https://cdn-icons-png.flaticon.com/512/681/681494.png" alt=""
+                style="width: 25px; height: 25px;">
+              <p style="font-size: 12px;">User</p>
+            </button>
+            <button routerLink="setting" mat-button style="height: 5.5rem;padding-top: 10px;" class="vertical-button"
+              (click)="changeButtonImage('setting')">
+              <img *ngIf="settingsbt" src="https://cdn-icons-png.flaticon.com/512/839/839599.png" alt=""
+                style="width: 25px; height: 25px;">
+              <img *ngIf="!settingsbt" src="https://cdn-icons-png.flaticon.com/512/839/839548.png" alt=""
+                style="width: 25px; height: 25px;">
+              <p style="font-size: 12px;">Settings</p>
+            </button>
+          </div>
+        </div>
+        <div class="main">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </body>
 
 </html>

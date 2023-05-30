@@ -27,7 +27,7 @@ export class BtactiveService {
   isButtonActive4$ = this.isButtonActive4Subject.asObservable();
 
   updateServicebtservice(){
-    this.updateValues(true, true, true, true, false, false, false, false);
+    this.updateValues(false, true, true, true, false, false, false, false);
   }
 
   updateDashboard() {

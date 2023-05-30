@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BtactiveService } from '../service/btactive.service';
 
@@ -22,7 +22,7 @@ export class MenuComponent implements OnInit {
   isButtonActive3: boolean | undefined
   isButtonActive4: boolean | undefined
 
-  constructor(private router: Router, private btactive: BtactiveService) {
+  constructor(private router: Router, private btactive: BtactiveService,private cdr:ChangeDetectorRef) {
   }
 
   ngOnInit() {
@@ -30,35 +30,43 @@ export class MenuComponent implements OnInit {
   }
   updateservice() {
     this.btactive.dashboardbt$.subscribe(value => {
-      this.dashboardbt = value
+      this.dashboardbt = value;
+      this.cdr.detectChanges(); // เพิ่มบรรทัดนี้
     })
     this.btactive.alertsbt$.subscribe(value => {
-      this.alertsbt = value
+      this.alertsbt = value;
+      this.cdr.detectChanges(); // เพิ่มบรรทัดนี้
     })
     this.btactive.userbt$.subscribe(value => {
-      this.userbt = value
+      this.userbt = value;
+      this.cdr.detectChanges(); // เพิ่มบรรทัดนี้
     })
     this.btactive.settingsbt$.subscribe(value => {
-      this.settingsbt = value
+      this.settingsbt = value;
+      this.cdr.detectChanges(); // เพิ่มบรรทัดนี้
     })
 
     this.btactive.isButtonActive1$.subscribe(value => {
-      this.isButtonActive1 = value
+      this.isButtonActive1 = value;
+      this.cdr.detectChanges(); // เพิ่มบรรทัดนี้
     })
     this.btactive.isButtonActive2$.subscribe(value => {
-      this.isButtonActive2 = value
+      this.isButtonActive2 = value;
+      this.cdr.detectChanges(); // เพิ่มบรรทัดนี้
     })
     this.btactive.isButtonActive3$.subscribe(value => {
-      this.isButtonActive3 = value
+      this.isButtonActive3 = value;
+      this.cdr.detectChanges(); // เพิ่มบรรทัดนี้
     })
     this.btactive.isButtonActive4$.subscribe(value => {
-      this.isButtonActive4 = value
+      this.isButtonActive4 = value;
+      this.cdr.detectChanges(); // เพิ่มบรรทัดนี้
     })
 
-    this.btactive.updateServicebtservice()
+    this.btactive.updateServicebtservice();
   }
 
-  changeButton1Image(buttonName: string) {
+  changeButtonImage(buttonName: string) {
     const buttonMapping: ButtonActiveMapping = {
       'dashboard': [false, true, true, true],
       'alerts': [true, false, true, true],

@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { BtactiveService } from '../service/btactive.service';
-import { FormControl } from '@angular/forms';
 
 interface Interval {
+  name: string;
   value: boolean;
-  viewValue: string;
 }
 
+interface City {
+  name: string,
+  code: string,
+  value?: boolean
+}
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -14,82 +18,70 @@ interface Interval {
 })
 export class DashboardComponent implements OnInit {
 
-constructor(private btactive : BtactiveService){
-}
 
-lineStylesData: any;
-basicOptions: any;
-rangeDates: Date[] | undefined;
-selectedValue: boolean | undefined
-IntervalSelector: Interval[] = [
-  { value: false, viewValue: 'All data' },
-  { value: false, viewValue: '6 Months data' },
-  { value: true, viewValue: 'custom' },
-];
-ngOnInit(): void {
-this.btactive.updateDashboard()
-this.viewtest()
-this.data_chart()
-}
-viewtest() { }
-toppings = new FormControl('');
-toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
-divs: number[] = [1, 2, 3, 4, 5, 6];
-data_chart() {
-  this.lineStylesData = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    datasets: [
-      {
-        label: 'First Dataset',
-        data: [65, 59, 80, 81, 56, 55, 40],
-        fill: false,
-        tension: .4,
-        borderColor: '#42A5F5'
-      },
-      {
-        label: 'Second Dataset',
-        data: [28, 48, 40, 19, 86, 27, 90],
-        fill: false,
-        borderDash: [5, 5],
-        tension: .4,
-        borderColor: '#66BB6A'
-      },
-      {
-        label: 'Third Dataset',
-        data: [12, 51, 62, 33, 21, 62, 45],
-        fill: true,
-        borderColor: '#FFA726',
-        tension: .4,
-        backgroundColor: 'rgba(255,167,38,0.2)'
-      }
-    ]
+  constructor(private btactive: BtactiveService) {
+  }
+  rangeDates: Date[] | undefined;
+  selectedInterval: Interval | undefined;
+  // selectedCities: City | undefined;
+  data: any;
+  options: any;
+
+  Intervalvalue: Interval[] = [
+    { name: 'All Data', value: false },
+    { name: '6 Months Data', value: false },
+    { name: 'Custom', value: true },
+  ];
+  cities: City[] = [
+    { name: 'Abnormality graph', code: 'ABG' },
+    { name: '%PR graph', code: 'PRG' },
+    { name: 'Waranty Meter graph', code: 'WMG' },
+    { name: 'Radiant graph', code: 'RG' },
+    { name: 'Module Temperature graph', code: 'MTG' },
+    { name: 'Ambient Temperature graph', code: 'ATG' }
+  ];
+  selectedCodes:any[] =[]
+  ngOnInit(): void {
+    this.btactive.updateDashboard()
+    this.datatestchart()
+    this.onSelectionChange()
+  }
+  selectedCities: City[] = [];
+
+  onSelectionChange() {
+
+    this.selectedCodes = this.selectedCities.map(city => city.code);
+    console.log(this.selectedCodes);
+  }
+
+  datatestchart(){
+    this.data = {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [
+          {
+              type: 'line',
+              label: 'Dataset 1',
+              // borderColor: ,
+              borderWidth: 2,
+              fill: false,
+              tension: 0.4,
+              data: [50, 25, 12, 48, 56, 76, 42]
+          },
+          {
+              type: 'bar',
+              label: 'Dataset 2',
+              // backgroundColor:,
+              data: [21, 84, 24, 75, 37, 65, 34],
+              borderColor: 'white',
+              borderWidth: 2
+          },
+          {
+              type: 'bar',
+              label: 'Dataset 3',
+              // backgroundColor: ,
+              data: [41, 52, 24, 74, 23, 21, 32]
+          }
+      ]
   };
-  this.basicOptions = {
-    plugins: {
-      legend: {
-        labels: {
-          color: '#ebedef'
-        }
-      }
-    },
-    scales: {
-      x: {
-        ticks: {
-          color: '#ebedef'
-        },
-        grid: {
-          color: 'rgba(255,255,255,0.2)'
-        }
-      },
-      y: {
-        ticks: {
-          color: '#ebedef'
-        },
-        grid: {
-          color: 'rgba(255,255,255,0.2)'
-        }
-      }
-    }
-  };
-}
+  }
 }

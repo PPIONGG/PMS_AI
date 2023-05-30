@@ -1,117 +1,111 @@
-<div class="header">
-  <div class="header-1">
-    <div class="header-1-1">
-      <mat-form-field appearance="fill">
-        <mat-label>Interval selector</mat-label>
-        <mat-select [(ngModel)]="selectedValue" name="food">
-          <mat-option *ngFor="let Interval of IntervalSelector" [value]="Interval.value">
-            {{Interval.viewValue}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div *ngIf="selectedValue">
+<div class="container">
+
+  <div class="contain-1">
+    <p-dropdown [options]="Intervalvalue" [(ngModel)]="selectedInterval" optionLabel="name"
+      placeholder="Interval Selector"></p-dropdown>
+    <div *ngIf="selectedInterval?.value">
       <p-calendar [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true" [showIcon]="true"></p-calendar>
     </div>
   </div>
-</div>
-<div>
-  <div class="main">
-    <mat-card class="main-1">
-      <div class="main-1-p">
-        <p style="font-size: 18px;">Energy Production</p>
-        <div style="display: flex;">
-          <div>
-            <img style="width: 40px;height: auto;" src="https://cdn-icons-png.flaticon.com/512/4719/4719549.png" alt="">
-          </div>
-          <div>
-            <p style="display: flex;align-items: center;height: 40px;font-size: 25px;font-weight: 600;">112 kWh</p>
-          </div>
+
+  <div class="contain-2">
+    <mat-card class="ct-matcard">
+      <div class="mc-1">
+        <p>Energy Production</p>
+        <div class="mc-1-1">
+          <img src="../../assets/ArrowDown.png" alt="">
+          <p>112 kWh</p>
         </div>
-        <div style="padding-left: 2.5rem;margin-top: -1.2rem;">
-          <p style="color: red;">50kWh</p>
+        <div class="mc-1-2">
+          <p>56kWh</p>
         </div>
       </div>
-      <div class="main-1-1" style="background: rgb(69, 97, 174);"></div>
+      <div class="mc-2" style="background: rgb(69, 97, 174);"></div>
     </mat-card>
-    <mat-card class="main-1">
-      <div class="main-1-p">
-        <p style="font-size: 18px;">Energy Production</p>
-        <div style="display: flex;">
-          <div>
-            <img style="width: 40px;height: auto;" src="https://cdn-icons-png.flaticon.com/512/4719/4719549.png" alt="">
-          </div>
-          <div>
-            <p style="display: flex;align-items: center;height: 40px;font-size: 25px;font-weight: 600;">112 kWh</p>
-          </div>
+    <mat-card class="ct-matcard">
+      <div class="mc-1">
+        <p>Perfomance Ratio</p>
+        <div class="mc-1-1">
+          <img src="../../assets/ArrowUp.png" alt="">
+          <p>66 %</p>
         </div>
-        <div style="padding-left: 2.5rem;margin-top: -1.2rem;">
-          <p style="color: red;">50kWh</p>
+        <div class="mc-1-2">
+          <p style="color:rgb(30, 163, 92);">1 %</p>
         </div>
       </div>
-      <div class="main-1-1" style="background: rgb(186, 47, 81);"></div>
+      <div class="mc-2" style="background: rgb(186, 47, 81);"></div>
     </mat-card>
-    <mat-card class="main-1">
-      <div class="main-1-p">
-        <p style="font-size: 18px;">Energy Production</p>
-        <div style="display: flex;">
-          <div>
-            <img style="width: 40px;height: auto;" src="https://cdn-icons-png.flaticon.com/512/4719/4719549.png" alt="">
-          </div>
-          <div>
-            <p style="display: flex;align-items: center;height: 40px;font-size: 25px;font-weight: 600;">112 kWh</p>
-          </div>
+    <mat-card class="ct-matcard">
+      <div class="mc-1">
+        <p>radiant</p>
+        <div class="mc-1-1">
+          <img src="../../assets/ArrowDown.png" alt="">
+          <p>1669 Wh/m³</p>
         </div>
-        <div style="padding-left: 2.5rem;margin-top: -1.2rem;">
-          <p style="color: red;">50kWh</p>
+        <div class="mc-1-2">
+          <p>43 Wh/m³</p>
         </div>
       </div>
-      <div class="main-1-1" style="background: rgb(245, 195, 66);"></div>
+      <div class="mc-2" style="background: rgb(245, 195, 66);"></div>
     </mat-card>
-    <mat-card class="main-1">
-      <div class="main-1-p">
-        <p style="font-size: 18px;">Energy Production</p>
-        <div style="display: flex;">
-          <div>
-            <img style="width: 40px;height: auto;" src="https://cdn-icons-png.flaticon.com/512/4719/4719549.png" alt="">
-          </div>
-          <div>
-            <p style="display: flex;align-items: center;height: 40px;font-size: 25px;font-weight: 600;">112 kWh</p>
-          </div>
+    <mat-card class="ct-matcard">
+      <div class="mc-1">
+        <p>Abnormality Detection</p>
+        <div class="mc-1-1">
+          <p style="color:rgb(30, 163, 92);">Normal</p>
         </div>
-        <div style="padding-left: 2.5rem;margin-top: -1.2rem;">
-          <p style="color: red;">50kWh</p>
+        <div class="mc-1-2" style="padding: 0;">
+          <p style="color: rgb(145, 175, 176);">Last update : 1 April 2023 18:36</p>
         </div>
       </div>
-      <div class="main-1-1" style="background:rgb(91,174,130);"></div>
+      <div class="mc-2" style="background:rgb(30, 163, 92);"></div>
     </mat-card>
   </div>
-</div>
-<div class="main2">
-  <div class="main2-1">
-    <mat-form-field appearance="fill">
-      <mat-label>Toppings</mat-label>
-      <mat-select [formControl]="toppings" multiple>
-        <mat-select-trigger>
-          {{toppings.value?.[0] || ''}}
-          <span *ngIf="(toppings.value?.length || 0) > 1" class="example-additional-selection">
-            (+{{(toppings.value?.length || 0) - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
-          </span>
-        </mat-select-trigger>
-        <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
-      </mat-select>
-    </mat-form-field>
+
+  <div class="contain-3">
+    <div class="card flex justify-content-center">
+      <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" optionLabel="name" placeholder="Graph selector"
+        display="chip" (onChange)="onSelectionChange();"></p-multiSelect>
+    </div>
   </div>
-</div>
-<div class="main3">
-  <div class="grid-container">
-    <div *ngFor="let div of divs" class="grid-item" >
+
+  <div class="contain-4">
+    <div class="ct-chart" *ngIf="selectedCodes.includes('ABG')">
       <mat-card>
-        <div class="card">
-          <h5>Line Styles</h5>
-          <p-chart type="line" [data]="lineStylesData" [options]="basicOptions"></p-chart>
-      </div>
+        <p style="text-align: center;margin-top: 1em;">Abnormality graph</p>
+        <p-chart type="line" [data]="data" [options]="options"></p-chart>
+      </mat-card>
+    </div>
+    <div class="ct-chart" *ngIf="selectedCodes.includes('PRG')">
+      <mat-card>
+        <p style="text-align: center;margin-top: 1em;">%PR graph</p>
+        <p-chart type="line" [data]="data" [options]="options"></p-chart>
+      </mat-card>
+    </div>
+    <div class="ct-chart" *ngIf="selectedCodes.includes('WMG')">
+      <mat-card>
+        <p style="text-align: center;margin-top: 1em;">Waranty Meter graph</p>
+        <p-chart type="line" [data]="data" [options]="options"></p-chart>
+      </mat-card>
+    </div>
+    <div class="ct-chart" *ngIf="selectedCodes.includes('RG')">
+      <mat-card>
+        <p style="text-align: center;margin-top: 1em;">Radiant graph</p>
+        <p-chart type="line" [data]="data" [options]="options"></p-chart>
+      </mat-card>
+    </div>
+    <div class="ct-chart" *ngIf="selectedCodes.includes('MTG')">
+      <mat-card>
+        <p style="text-align: center;margin-top: 1em;">Module Temperature graph</p>
+        <p-chart type="line" [data]="data" [options]="options"></p-chart>
+      </mat-card>
+    </div>
+    <div class="ct-chart" *ngIf="selectedCodes.includes('ATG')">
+      <mat-card>
+        <p style="text-align: center;margin-top: 1em;">Ambient Temperature graph</p>
+        <p-chart type="line" [data]="data" [options]="options"></p-chart>
       </mat-card>
     </div>
   </div>
+
 </div>

@@ -106,7 +106,8 @@
 }
 .main-bt-createaccount {
   height: 2.6rem;
-  width: 280px;
+  /* width: 280px; */
+  width: 100%;
 }
 .footer {
   display: flex;

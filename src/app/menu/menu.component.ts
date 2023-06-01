@@ -1,6 +1,10 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BtactiveService } from '../service/btactive.service';
+import { ToastService } from '../service/toast.service';
+import { ActivatedRoute } from '@angular/router';
+
+import { Location } from '@angular/common';
 
 interface ButtonActiveMapping {
   [key: string]: boolean[];
@@ -22,12 +26,29 @@ export class MenuComponent implements OnInit {
   isButtonActive3: boolean | undefined
   isButtonActive4: boolean | undefined
 
-  constructor(private router: Router, private btactive: BtactiveService,private cdr:ChangeDetectorRef) {
+  constructor(
+    private router: Router,
+    private btactive: BtactiveService,
+    private cdr:ChangeDetectorRef,
+    private toast : ToastService,
+    private route: ActivatedRoute,
+    private location: Location
+    ) {
   }
 
   ngOnInit() {
     this.updateservice()
+    this.route.queryParams.subscribe(params => {
+      if (params['fromLogin']) {
+        this.toast.showSuccess()
+        this.location.replaceState('/menu/dashboard');
+
+      }
+    });
   }
+
+
+
   updateservice() {
     this.btactive.dashboardbt$.subscribe(value => {
       this.dashboardbt = value;

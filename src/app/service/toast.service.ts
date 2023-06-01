@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 
 @Injectable({
@@ -8,21 +7,7 @@ import { MessageService } from 'primeng/api';
 export class ToastService {
 
   constructor(
-    private messageService: MessageService,
-    private router: Router) {}
-
-    logRouteChanges() {
-      this.router.events.subscribe((event) => {
-        if (event instanceof NavigationEnd) {
-          const url = event.url;
-          if (url === '/menu') {
-            this.showSuccess()
-            console.log('test123455425432');
-
-          }
-        }
-      });
-    }
+    private messageService: MessageService) { }
 
   showSuccess() {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });

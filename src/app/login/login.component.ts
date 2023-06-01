@@ -23,6 +23,8 @@ export class LoginComponent {
     private dialog: MatDialog
   ) { }
 
+
+
   openDialog(dialognumber: string) {
     if (dialognumber == 'home') {
       const dialogRef = this.dialog.open(HomeComponent, {
@@ -67,7 +69,7 @@ export class LoginComponent {
   }
 
   login(): void {
-    this.router.navigate(['/menu']);
+    this.router.navigate(['/menu'], { queryParams: { fromLogin: true } });
   }
   onSubmit() {
     this.router.navigate(['/menu']);

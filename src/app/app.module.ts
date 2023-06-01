@@ -21,6 +21,7 @@ import { MenuComponent } from './menu/menu.component';
 import { AlertsComponent } from './alerts/alerts.component';
 import { SettingsComponent } from './settings/settings.component';
 import { CreateaccountComponent } from './dialog/login/createaccount/createaccount.component';
+import { MessageService } from 'primeng/api';
 
 
 
@@ -48,7 +49,7 @@ import { CreateaccountComponent } from './dialog/login/createaccount/createaccou
     PrimengModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

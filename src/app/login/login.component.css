@@ -42,7 +42,8 @@
 }
 .main {
   display: flex;
-  background-image: url("./../../assets/blog_6.webp"); /* ใส่ URL ของรูปภาพที่ต้องการแสดง */
+  background-color: rgb(238, 240, 243);
+  /* background-image: url("./../../assets/blog_6.webp");  */
   background-size: cover; /* ปรับขนาดรูปภาพให้เต็มจอ */
   background-position: center; /* จัดตำแหน่งรูปภาพกลางแนวนอนและแนวตั้ง */
   height: 100%; /* กำหนดความสูงเป็น 100vh เพื่อให้แสดงเต็มจอ */
@@ -60,11 +61,13 @@
   font-weight: 900;
   font-size: 48px;
   line-height: 55px;
-  color: #ffffff;
+  color: rgb(15, 31, 85);
+  /* color: #ffffff; */
 }
 .main-2 {
   width: 50%;
   height: 100%;
+
 }
 .main-2-1 {
   display: flex;
@@ -77,6 +80,8 @@
   height: 400px;
   padding: 2.5rem;
   margin-right: 2rem;
+  box-shadow:   0px 0px 47px -7px  rgba(0 0 0 / 0.15);
+  border-radius: 4px;
 }
 .main-card p {
   font-weight: 600;

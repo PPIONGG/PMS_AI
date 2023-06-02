@@ -16,14 +16,15 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatSelectModule } from '@angular/material/select';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule
   ],
-  exports:[
+  exports: [
     MatSlideToggleModule,
     MatToolbarModule,
     MatCardModule,
@@ -39,7 +40,8 @@ import {MatTableModule} from '@angular/material/table';
     MatSelectModule,
     MatProgressBarModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    MatRadioModule
   ]
 })
 export class MaterialModule { }

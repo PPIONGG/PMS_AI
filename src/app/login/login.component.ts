@@ -6,6 +6,7 @@ import { AboutComponent } from '../dialog/login/about/about.component';
 import { ContactComponent } from '../dialog/login/contact/contact.component';
 import { ForgotComponent } from '../dialog/login/forgot/forgot.component';
 import { CreateaccountComponent } from '../dialog/login/createaccount/createaccount.component';
+import { ToastService } from '../service/toast.service';
 
 @Component({
   selector: 'app-login',
@@ -20,10 +21,9 @@ export class LoginComponent {
   hideprogress: boolean = false
   constructor(
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private toast : ToastService
   ) { }
-
-
 
   openDialog(dialognumber: string) {
     if (dialognumber == 'home') {
@@ -64,10 +64,13 @@ export class LoginComponent {
       });
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed');
+        // this.toast.showError()
+        if (result) {
+          this.toast.showWarn()
+        }
       })
     }
   }
-
   login(): void {
     this.router.navigate(['/menu'], { queryParams: { fromLogin: true } });
   }

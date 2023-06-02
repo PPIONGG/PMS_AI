@@ -1,7 +1,31 @@
+.container {
+  width: 500px;
+}
 .header {
-display: flex;
-flex-direction: column;
-border: 1px solid red;
-justify-content: center;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+.header h1 {
+  font-weight: bold;
+}
+.header p {
+  margin-top: -1em;
+}
+.main {
+  padding: 1em;
+}
+.main-1 {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1em;
+  margin-top: 1em;
+}
+.footer {
+  display: flex;
+  justify-content: center;
 }

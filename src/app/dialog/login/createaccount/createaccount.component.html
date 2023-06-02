@@ -1,12 +1,69 @@
-<div class="caontainer">
+<div class="container">
   <div class="header">
-    <p>สมัครบัญชีใหม่</p>
+    <h1>สมัครบัญชีใหม่</h1>
     <p>ง่ายและรวดเร็ว</p>
   </div>
   <div class="main">
-
+    <mat-divider style="margin-top: -2em;"></mat-divider>
+    <div class="main-1">
+      <mat-form-field style="width: 100%;">
+        <input matInput placeholder="ชื่อ">
+      </mat-form-field>
+      <mat-form-field style="width: 100%;">
+        <input matInput placeholder="นามสกุล">
+      </mat-form-field>
+    </div>
+    <div class="main-2">
+      <mat-form-field style="width: 100%;">
+        <input matInput placeholder="หมายเลขโทรศัพท์มือถือหรืออีเมล">
+      </mat-form-field>
+    </div>
+    <div class="main-3">
+      <mat-form-field style="width: 100%;">
+        <input matInput placeholder="รหัสผ่านใหม่">
+      </mat-form-field>
+    </div>
+    <div class="main-4">
+      <p>วันเกิด</p>
+      <div style="display: flex;gap: 1em;margin-top: -0.7em;">
+        <mat-form-field>
+          <mat-label>Favorite food</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+              {{food.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Favorite food</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+              {{food.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Favorite food</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+              {{food.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="main-5">
+      <p>เพศ</p>
+      <div style="display: flex;gap: 1em;margin-top: -1.2em;">
+        <mat-radio-group aria-label="Select an option" style="display: flex;justify-content: space-around;width: 100%;">
+          <mat-radio-button value="1">หญิง</mat-radio-button>
+          <mat-radio-button value="2">ชาย</mat-radio-button>
+          <mat-radio-button value="2">กำหนดเอง</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
   </div>
   <div class="footer">
-
+    <button [mat-dialog-close]="true"  mat-raised-button style="background-color: var(--success-color);width: 170px;color: white;font-weight: bold;margin-bottom: 1.5em;">สมัคร</button>
   </div>
 </div>

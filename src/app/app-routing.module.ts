@@ -6,10 +6,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersComponent } from './users/users.component';
 import { AlertsComponent } from './alerts/alerts.component';
 import { SettingsComponent } from './settings/settings.component';
+import { CreateaccountComponent } from './dialog/login/createaccount/createaccount.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: '', component: LoginComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+
   {
     path: 'menu', component: MenuComponent, children: [
       {path:'',redirectTo:'dashboard',pathMatch:'full'},

@@ -92,13 +92,13 @@ export class MenuComponent implements OnInit {
       'dashboard': [false, true, true, true],
       'alerts': [true, false, true, true],
       'users': [true, true, false, true],
-      'setting': [true, true, true, false]
+      'settings': [true, true, true, false]
     };
 
     const buttonActiveMapping: ButtonActiveMapping = {
       'dashboard': [true, false, false, false],
       'alerts': [false, true, false, false],
-      'user': [false, false, true, false],
+      'users': [false, false, true, false],
       'settings': [false, false, false, true]
     };
 

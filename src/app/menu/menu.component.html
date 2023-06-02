@@ -60,7 +60,7 @@
           </div>
           <div>
             <button [ngClass]="{ 'active': isButtonActive3 }" mat-button class="bt-sidenav" routerLink="users"
-              (click)="changeButtonImage('users');sidenav.toggle()">
+              (click)="changeButtonImage('users'); sidenav.toggle()">
               <div style="display: flex;">
                 <div style="margin-left: -128px;display: flex;align-items: center;"> <img *ngIf="userbt"
                     src="https://cdn-icons-png.flaticon.com/512/681/681443.png" alt=""
@@ -77,7 +77,7 @@
           </div>
           <div>
             <button [ngClass]="{ 'active': isButtonActive4 }" mat-button class="bt-sidenav" routerLink="setting"
-              (click)="changeButtonImage('setting');sidenav.toggle()">
+              (click)="changeButtonImage('settings'); sidenav.toggle()">
               <div style="display: flex;">
                 <div style="margin-left: -88px;display: flex;align-items: center;"> <img *ngIf="settingsbt"
                     src="https://cdn-icons-png.flaticon.com/512/839/839599.png" alt=""
@@ -156,7 +156,7 @@
               <p style="font-size: 12px;">User</p>
             </button>
             <button routerLink="setting" mat-button style="height: 5.5rem;padding-top: 10px;" class="vertical-button"
-              (click)="changeButtonImage('setting')">
+              (click)="changeButtonImage('settings')">
               <img *ngIf="settingsbt" src="https://cdn-icons-png.flaticon.com/512/839/839599.png" alt=""
                 style="width: 25px; height: 25px;">
               <img *ngIf="!settingsbt" src="https://cdn-icons-png.flaticon.com/512/839/839548.png" alt=""

@@ -33,5 +33,6 @@ export class UsersComponent {
 
   ngOnInit(): void {
       this.btactive.updateUsers()
+      console.log('ควยอะไรของมึงวะ');
   }
 }

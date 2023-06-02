@@ -67,6 +67,8 @@ export class LoginComponent {
         // this.toast.showError()
         if (result) {
           this.toast.showWarn()
+        } else {
+          this.toast.showError()
         }
       })
     }

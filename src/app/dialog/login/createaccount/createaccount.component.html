@@ -27,26 +27,23 @@
       <p>วันเกิด</p>
       <div style="display: flex;gap: 1em;margin-top: -0.7em;">
         <mat-form-field>
-          <mat-label>Favorite food</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let food of foods" [value]="food.value">
-              {{food.viewValue}}
+          <mat-select [(value)]="dateselected">
+            <mat-option *ngFor="let date of dates" [value]="date.value">
+              {{date.viewValue}}
             </mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field>
-          <mat-label>Favorite food</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let food of foods" [value]="food.value">
-              {{food.viewValue}}
+          <mat-select [(value)]="monthselected">
+            <mat-option *ngFor="let month of months" [value]="month.value">
+              {{month.viewValue}}
             </mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field>
-          <mat-label>Favorite food</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let food of foods" [value]="food.value">
-              {{food.viewValue}}
+          <mat-select [(value)]="yearselected">
+            <mat-option *ngFor="let year of years" [value]="year.value">
+              {{year.viewValue}}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -64,6 +61,7 @@
     </div>
   </div>
   <div class="footer">
-    <button [mat-dialog-close]="true"  mat-raised-button style="background-color: var(--success-color);width: 170px;color: white;font-weight: bold;margin-bottom: 1.5em;">สมัคร</button>
+    <button [mat-dialog-close]="true" mat-raised-button
+      style="background-color: var(--success-color);width: 170px;color: white;font-weight: bold;margin-bottom: 1.5em;">สมัคร</button>
   </div>
 </div>

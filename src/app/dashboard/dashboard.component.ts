@@ -23,7 +23,6 @@ export class DashboardComponent implements OnInit {
   }
   rangeDates: Date[] | undefined;
   selectedInterval: Interval | undefined;
-  // selectedCities: City | undefined;
   data: any;
   options: any;
 
@@ -42,7 +41,7 @@ export class DashboardComponent implements OnInit {
   ];
   selectedCodes:any[] =[]
   ngOnInit(): void {
-    this.btactive.updateDashboard()
+    // this.btactive.updateDashboard()
     this.datatestchart()
     this.onSelectionChange()
   }

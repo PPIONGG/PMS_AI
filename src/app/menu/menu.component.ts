@@ -29,11 +29,11 @@ export class MenuComponent implements OnInit {
   constructor(
     private router: Router,
     private btactive: BtactiveService,
-    private cdr:ChangeDetectorRef,
-    private toast : ToastService,
+    private cdr: ChangeDetectorRef,
+    private toast: ToastService,
     private route: ActivatedRoute,
     private location: Location
-    ) {
+  ) {
   }
 
   ngOnInit() {
@@ -45,9 +45,20 @@ export class MenuComponent implements OnInit {
 
       }
     });
+    if (this.router.url === '/menu/dashboard') {
+      this.btactive.updateDashboard()
+      console.log('testdashboard');
+    } else if (this.router.url === '/menu/alerts') {
+      this.btactive.updateAlerts()
+      console.log('testalerts');
+    } else if (this.router.url === '/menu/users') {
+      this.btactive.updateUsers()
+      console.log('testusers');
+    } else if (this.router.url === '/menu/setting') {
+      this.btactive.updateSettings()
+      console.log('testsettings');
+    }
   }
-
-
 
   updateservice() {
     this.btactive.dashboardbt$.subscribe(value => {

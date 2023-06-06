@@ -11,6 +11,6 @@ export class AlertsComponent {
   }
 
   ngOnInit(): void {
-    this.btactive.updateAlerts()
+    // this.btactive.updateAlerts()
   }
 }

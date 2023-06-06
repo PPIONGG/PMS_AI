@@ -11,6 +11,6 @@ export class SettingsComponent {
   }
 
   ngOnInit(): void {
-      this.btactive.updateSettings()
+      // this.btactive.updateSettings()
   }
 }

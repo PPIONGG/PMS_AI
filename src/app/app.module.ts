@@ -22,6 +22,7 @@ import { AlertsComponent } from './alerts/alerts.component';
 import { SettingsComponent } from './settings/settings.component';
 import { CreateaccountComponent } from './dialog/login/createaccount/createaccount.component';
 import { MessageService } from 'primeng/api';
+import { BtactiveService } from './service/btactive.service';
 
 
 
@@ -49,7 +50,7 @@ import { MessageService } from 'primeng/api';
     PrimengModule,
     ReactiveFormsModule
   ],
-  providers: [MessageService],
+  providers: [MessageService,BtactiveService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

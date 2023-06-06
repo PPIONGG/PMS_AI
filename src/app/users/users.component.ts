@@ -32,7 +32,6 @@ export class UsersComponent {
   dataSource = this.ELEMENT_DATA;
 
   ngOnInit(): void {
-      this.btactive.updateUsers()
-      console.log('ควยอะไรของมึงวะ');
+      // this.btactive.updateUsers()
   }
 }

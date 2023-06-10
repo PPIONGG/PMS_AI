@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersapiService } from '../service/usersapi.service';
+import { ToastService } from '../service/toast.service';
 
 @Component({
   selector: 'app-users',
@@ -9,18 +10,14 @@ import { UsersapiService } from '../service/usersapi.service';
 export class UsersComponent implements OnInit {
   dataAll: any[] = [];
 
-  constructor(private usersApiService: UsersapiService) {}
+  constructor(private usersApiService: UsersapiService, private toast: ToastService) {}
 
   ngOnInit() {
     this.getUsersData();
     console.log('reload this page');
-
   }
 
   getUsersData() {
-    // this.usersApiService.getUsersData();
-    // this.dataAll = this.usersApiService.dataAll;
-    // console.log('this.dataAll',this.dataAll);
     this.usersApiService.getUsersData().subscribe(
       (response: any[]) => {
         this.dataAll = response;
@@ -36,8 +33,7 @@ export class UsersComponent implements OnInit {
     this.usersApiService.DeleteUsersData(id).subscribe(
       (response) => {
         console.log('Item deleted successfully');
-        this.dataAll = this.dataAll.filter((item) => item._id !== id); // ลบข้อมูลออกจากอาร์เรย์
-        // this.getUsersData(); // ดึงข้อมูลใหม่หลังจากลบ
+        this.dataAll = this.dataAll.filter((item) => item._id !== id);
       },
       (error) => {
         console.log(error);
@@ -45,23 +41,33 @@ export class UsersComponent implements OnInit {
     );
   }
 
-  editItem(id: string) {
+  editItem(id: string, updatedProduct: any) {
+    const { firstname, lastname, email, password } = updatedProduct;
+
+    if (firstname === "" || lastname === "" || email === "" || password === "") {
+      this.toast.showError("กรอกข้อมูลไม่ครบถ้วน");
+      return;
+    }
+
     const userData = {
-        "firstname": "มะขาม"
+      firstname,
+      lastname,
+      email,
+      password
     };
 
     this.usersApiService.EditUsersData(id, userData).subscribe(
       (response) => {
         console.log('Item updated successfully');
-        const index = this.dataAll.findIndex((item) => item._id === id);
-        if (index !== -1) {
-          this.dataAll[index] = response; // อัปเดตข้อมูลที่ถูกแก้ไขในอาร์เรย์
-        }
-        // this.getUsersData(); // ดึงข้อมูลใหม่หลังจากอัปเดต
       },
       (error) => {
         console.log(error);
       }
     );
   }
+
+  cancelEdit() {
+    this.getUsersData();
+  }
+
 }

@@ -8,20 +8,24 @@ import { DropdownModule } from 'primeng/dropdown';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { CardModule } from 'primeng/card';
 import { ToastModule } from 'primeng/toast';
+import { TableModule } from 'primeng/table';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule
   ],
-  exports:[
+  exports: [
     CalendarModule,
     ChartModule,
     TreeSelectModule,
     DropdownModule,
     MultiSelectModule,
     CardModule,
-    ToastModule
+    ToastModule,
+    TableModule,
+    InputTextModule
   ]
 })
 export class PrimengModule { }

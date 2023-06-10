@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { BtactiveService } from '../service/btactive.service';
 
 @Component({
   selector: 'app-alerts',
@@ -7,10 +6,4 @@ import { BtactiveService } from '../service/btactive.service';
   styleUrls: ['./alerts.component.css']
 })
 export class AlertsComponent {
-  constructor(private btactive : BtactiveService){
-  }
-
-  ngOnInit(): void {
-    // this.btactive.updateAlerts()
-  }
 }

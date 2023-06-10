@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { HomeComponent } from '../dialog/login/home/home.component';
@@ -7,23 +7,26 @@ import { ContactComponent } from '../dialog/login/contact/contact.component';
 import { ForgotComponent } from '../dialog/login/forgot/forgot.component';
 import { CreateaccountComponent } from '../dialog/login/createaccount/createaccount.component';
 import { ToastService } from '../service/toast.service';
+import { HttpClient } from '@angular/common/http';
+import { UsersapiService } from '../service/usersapi.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   username: string = '';
   password: string = '';
   hide = true;
   progressValue: number = 0;
   hideprogress: boolean = false
+  data: any[] = []
   constructor(
     private router: Router,
-    private dialog: MatDialog,
-    private toast : ToastService
-  ) { }
+    private dialog: MatDialog
+  ) {}
+  ngOnInit() {}
 
   openDialog(dialognumber: string) {
     if (dialognumber == 'home') {
@@ -66,19 +69,20 @@ export class LoginComponent {
         console.log('The dialog was closed');
         // this.toast.showError()
         if (result) {
-          this.toast.showWarn()
+          // this.toast.showWarn()
         } else {
-          this.toast.showError()
+          // this.toast.showError()
         }
       })
     }
   }
-  login(): void {
+  login(){
     this.router.navigate(['/menu'], { queryParams: { fromLogin: true } });
   }
   onSubmit() {
     this.router.navigate(['/menu']);
   }
+
   reloadPage() {
     this.progressValue = 0; // เริ่มต้นค่าความคืบหน้าที่ 0
     this.hideprogress = true

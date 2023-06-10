@@ -39,9 +39,8 @@ export class DashboardComponent implements OnInit {
     { name: 'Module Temperature graph', code: 'MTG' },
     { name: 'Ambient Temperature graph', code: 'ATG' }
   ];
-  selectedCodes:any[] =[]
+  selectedCodes: any[] = []
   ngOnInit(): void {
-    // this.btactive.updateDashboard()
     this.datatestchart()
     this.onSelectionChange()
   }
@@ -53,34 +52,34 @@ export class DashboardComponent implements OnInit {
     console.log(this.selectedCodes);
   }
 
-  datatestchart(){
+  datatestchart() {
     this.data = {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
       datasets: [
-          {
-              type: 'line',
-              label: 'Dataset 1',
-              // borderColor: ,
-              borderWidth: 2,
-              fill: false,
-              tension: 0.4,
-              data: [50, 25, 12, 48, 56, 76, 42]
-          },
-          {
-              type: 'bar',
-              label: 'Dataset 2',
-              // backgroundColor:,
-              data: [21, 84, 24, 75, 37, 65, 34],
-              borderColor: 'white',
-              borderWidth: 2
-          },
-          {
-              type: 'bar',
-              label: 'Dataset 3',
-              // backgroundColor: ,
-              data: [41, 52, 24, 74, 23, 21, 32]
-          }
+        {
+          type: 'line',
+          label: 'Dataset 1',
+          // borderColor: ,
+          borderWidth: 2,
+          fill: false,
+          tension: 0.4,
+          data: [50, 25, 12, 48, 56, 76, 42]
+        },
+        {
+          type: 'bar',
+          label: 'Dataset 2',
+          // backgroundColor:,
+          data: [21, 84, 24, 75, 37, 65, 34],
+          borderColor: 'white',
+          borderWidth: 2
+        },
+        {
+          type: 'bar',
+          label: 'Dataset 3',
+          // backgroundColor: ,
+          data: [41, 52, 24, 74, 23, 21, 32]
+        }
       ]
-  };
+    };
   }
 }

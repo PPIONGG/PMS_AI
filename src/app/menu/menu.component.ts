@@ -40,7 +40,7 @@ export class MenuComponent implements OnInit {
     this.updateservice()
     this.route.queryParams.subscribe(params => {
       if (params['fromLogin']) {
-        this.toast.showSuccess()
+        this.toast.showSuccess('เข้าสู่ระบบ')
         this.location.replaceState('/menu/dashboard');
 
       }

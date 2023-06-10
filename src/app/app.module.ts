@@ -24,7 +24,7 @@ import { CreateaccountComponent } from './dialog/login/createaccount/createaccou
 import { MessageService } from 'primeng/api';
 import { BtactiveService } from './service/btactive.service';
 
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -48,9 +48,10 @@ import { BtactiveService } from './service/btactive.service';
     FormsModule,
     MaterialModule,
     PrimengModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [MessageService,BtactiveService],
+  providers: [MessageService, BtactiveService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

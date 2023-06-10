@@ -9,8 +9,8 @@ export class ToastService {
   constructor(
     private messageService: MessageService) { }
 
-  showSuccess() {
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
+  showSuccess(text: string) {
+    this.messageService.add({ severity: 'success', detail: text });
   }
 
   showInfo() {
@@ -21,7 +21,7 @@ export class ToastService {
     this.messageService.add({ severity: 'warn', summary: 'Warn', detail: 'Message Content' });
   }
 
-  showError() {
-    this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Message Content' });
+  showError(text: string) {
+    this.messageService.add({ severity: 'error', detail: text });
   }
 }

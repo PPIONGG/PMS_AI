@@ -2,25 +2,26 @@
   <div class="header">
     <h1>สมัครบัญชีใหม่</h1>
     <p>ง่ายและรวดเร็ว</p>
+    <button (click)="dialogRefclose()" style="position:absolute;top: 10px;right: 15px;border: none;background-color: transparent;"><mat-icon>clear</mat-icon></button>
   </div>
   <div class="main">
     <mat-divider style="margin-top: -2em;"></mat-divider>
     <div class="main-1">
       <mat-form-field style="width: 100%;">
-        <input matInput placeholder="ชื่อ">
+        <input matInput placeholder="ชื่อ" [(ngModel)]="firstname2">
       </mat-form-field>
       <mat-form-field style="width: 100%;">
-        <input matInput placeholder="นามสกุล">
+        <input matInput placeholder="นามสกุล" [(ngModel)]="lastname2">
       </mat-form-field>
     </div>
     <div class="main-2">
       <mat-form-field style="width: 100%;">
-        <input matInput placeholder="หมายเลขโทรศัพท์มือถือหรืออีเมล">
+        <input matInput placeholder="หมายเลขโทรศัพท์มือถือหรืออีเมล" [(ngModel)]="email2">
       </mat-form-field>
     </div>
     <div class="main-3">
       <mat-form-field style="width: 100%;">
-        <input matInput placeholder="รหัสผ่านใหม่">
+        <input matInput placeholder="รหัสผ่านใหม่" [(ngModel)]="password2">
       </mat-form-field>
     </div>
     <div class="main-4">
@@ -52,16 +53,21 @@
     <div class="main-5">
       <p>เพศ</p>
       <div style="display: flex;gap: 1em;margin-top: -1.2em;">
-        <mat-radio-group aria-label="Select an option" style="display: flex;justify-content: space-around;width: 100%;">
+        <mat-radio-group aria-label="Select an option" style="display: flex;justify-content: space-around;width: 100%;"
+          [(ngModel)]="genderselected">
           <mat-radio-button value="1">หญิง</mat-radio-button>
           <mat-radio-button value="2">ชาย</mat-radio-button>
-          <mat-radio-button value="2">กำหนดเอง</mat-radio-button>
+          <mat-radio-button value="3">กำหนดเอง</mat-radio-button>
         </mat-radio-group>
       </div>
+      <!-- <div *ngIf="isFormIncomplete" style="color: red; margin-top: 0.5em;">
+        error required
+      </div> -->
     </div>
   </div>
   <div class="footer">
-    <button [mat-dialog-close]="true" mat-raised-button
-      style="background-color: var(--success-color);width: 170px;color: white;font-weight: bold;margin-bottom: 1.5em;">สมัคร</button>
+    <button mat-raised-button
+      style="background-color: var(--success-color);width: 170px;color: white;font-weight: bold;margin-bottom: 1.5em;"
+      (click)="createAccount()">สมัคร</button>
   </div>
 </div>

@@ -9,6 +9,7 @@ import { ToastService } from '../service/toast.service';
 })
 export class UsersComponent implements OnInit {
   dataAll: any[] = [];
+  editingRow: any = null; // เพิ่มตัวแปร editingRow
 
   constructor(private usersApiService: UsersapiService, private toast: ToastService) {}
 
@@ -59,6 +60,7 @@ export class UsersComponent implements OnInit {
     this.usersApiService.EditUsersData(id, userData).subscribe(
       (response) => {
         console.log('Item updated successfully');
+        this.editingRow = null; // เมื่อแก้ไขสำเร็จ ให้เคลียร์ค่า editingRow
       },
       (error) => {
         console.log(error);
@@ -67,7 +69,11 @@ export class UsersComponent implements OnInit {
   }
 
   cancelEdit() {
+    this.editingRow = null; // เมื่อยกเลิกแก้ไข ให้เคลียร์ค่า editingRow
     this.getUsersData();
   }
 
+  onRowEditInit(product: any) {
+    this.editingRow = product; // เรียกใช้เมื่อเริ่มแก้ไขแถว
+  }
 }

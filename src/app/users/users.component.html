@@ -1,31 +1,31 @@
-<div style="display: flex; justify-content: center;margin-top: 1em;">
-  <mat-card style="width: 100%;">
+<div style="display: flex; justify-content: center;margin-top: 2em;">
+  <mat-card style="display: flex;width: 100%;margin-left: 2em;margin-right: 2em;">
     <div class="card">
       <p-toast></p-toast>
       <p-table [value]="dataAll" dataKey="id" editMode="row">
         <ng-template pTemplate="header">
           <tr>
-            <th style="display: flex;padding-left: 3em;">First Name</th>
+            <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
             <th>Password</th>
             <th></th>
           </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-product let-editing="editing" let-ri="rowIndex">
-          <tr [pEditableRow]="product">
+        <ng-template pTemplate="body" let-product let-ri="rowIndex" >
+          <tr [pEditableRow]="product" *ngIf="editingRow === product" > <!-- เพิ่มเงื่อนไขเช็คว่า editingRow เท่ากับ product -->
             <td>
-              <p-cellEditor>
+              <p-cellEditor >
                 <ng-template pTemplate="output">
                   {{ product.firstname }}
                 </ng-template>
-                <ng-template pTemplate="input">
+                <ng-template pTemplate="input" >
                   <input pInputText type="text" [(ngModel)]="product.firstname" required>
                 </ng-template>
               </p-cellEditor>
             </td>
             <td>
-              <p-cellEditor>
+              <p-cellEditor >
                 <ng-template pTemplate="output">
                   {{ product.lastname }}
                 </ng-template>
@@ -56,15 +56,25 @@
             </td>
             <td>
               <div class="flex align-items-center justify-content-center gap-2">
-                <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"
-                  class="p-button-rounded p-button-text" ></button>
-                <button *ngIf="!editing" pButton pRipple type="button" icon="pi pi-trash"
-                  class="p-button-rounded p-button-text" (click)="deleteItem(product._id)"></button>
-                <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"
+                <button pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"
                   class="p-button-rounded p-button-text p-button-success mr-2"
                   (click)="editItem(product._id, product)"></button>
-                <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"
+                <button pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"
                   class="p-button-rounded p-button-text p-button-danger" (click)="cancelEdit()"></button>
+              </div>
+            </td>
+          </tr>
+          <tr [pEditableRow]="product" *ngIf="editingRow !== product"> <!-- เพิ่มเงื่อนไขเช็คว่า editingRow ไม่เท่ากับ product -->
+            <td>{{ product.firstname }}</td>
+            <td>{{ product.lastname }}</td>
+            <td>{{ product.email }}</td>
+            <td>{{ product.password }}</td>
+            <td>
+              <div class="flex align-items-center justify-content-center gap-2">
+                <button pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"
+                  class="p-button-rounded p-button-text" (click)="onRowEditInit(product)"></button>
+                <button pButton pRipple type="button" icon="pi pi-trash"
+                  class="p-button-rounded p-button-text" (click)="deleteItem(product._id)"></button>
               </div>
             </td>
           </tr>
@@ -73,3 +83,4 @@
     </div>
   </mat-card>
 </div>
+

@@ -8,20 +8,20 @@
     <mat-divider style="margin-top: -2em;"></mat-divider>
     <div class="main-1">
       <mat-form-field style="width: 100%;">
-        <input matInput placeholder="ชื่อ" [(ngModel)]="firstname2">
+        <input matInput placeholder="ชื่อ" [(ngModel)]="firstname2" required>
       </mat-form-field>
       <mat-form-field style="width: 100%;">
-        <input matInput placeholder="นามสกุล" [(ngModel)]="lastname2">
+        <input matInput placeholder="นามสกุล" [(ngModel)]="lastname2" required>
       </mat-form-field>
     </div>
     <div class="main-2">
       <mat-form-field style="width: 100%;">
-        <input matInput placeholder="หมายเลขโทรศัพท์มือถือหรืออีเมล" [(ngModel)]="email2">
+        <input matInput placeholder="หมายเลขโทรศัพท์มือถือหรืออีเมล" [(ngModel)]="email2" required>
       </mat-form-field>
     </div>
     <div class="main-3">
       <mat-form-field style="width: 100%;">
-        <input matInput placeholder="รหัสผ่านใหม่" [(ngModel)]="password2">
+        <input matInput placeholder="รหัสผ่านใหม่" [(ngModel)]="password2" required>
       </mat-form-field>
     </div>
     <div class="main-4">
@@ -54,16 +54,17 @@
       <p>เพศ</p>
       <div style="display: flex;gap: 1em;margin-top: -1.2em;">
         <mat-radio-group aria-label="Select an option" style="display: flex;justify-content: space-around;width: 100%;"
-          [(ngModel)]="genderselected">
+          [(ngModel)]="genderselected" required>
           <mat-radio-button value="1">หญิง</mat-radio-button>
           <mat-radio-button value="2">ชาย</mat-radio-button>
           <mat-radio-button value="3">กำหนดเอง</mat-radio-button>
         </mat-radio-group>
       </div>
-      
-      <!-- <div *ngIf="true" style="color: red; margin-top: 0.5em;">
+
+  <!--  <div *ngIf="true" style="color: red; margin-top: 0.5em;">
         error required
       </div> -->
+
     </div>
   </div>
   <div class="footer">
